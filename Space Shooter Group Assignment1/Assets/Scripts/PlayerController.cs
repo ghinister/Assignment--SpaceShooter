@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
         Vector2 extents = spriteRenderer.bounds.extents;
         lowerLeft = lowerLeft + extents;
-        upperRight -= extents;
+        upperRight = upperRight + extents;
     }
     Vector3 CheckBoundary(Vector3 pos)
 	{
@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
             mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         }
 
+        CreateBoundary();
         
     }
 
@@ -49,7 +50,7 @@ public class PlayerController : MonoBehaviour
         
     }
 
-	private void Move()
+	/*private void Move()
 	{
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         float moveVertical = Input.GetAxisRaw("Vertical");
@@ -58,7 +59,7 @@ public class PlayerController : MonoBehaviour
         moveVector.Normalize();
         //Debug.Log(moveVector);
         transform.position = transform.position + (Vector3)moveVector * Speed * Time.deltaTime;
-    }
+    }*/
 
     private void MoveNewInput()
 	{

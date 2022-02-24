@@ -21,16 +21,10 @@ public class Enemy : MonoBehaviour
             directionToPlayer = player.position - transform.position;
             directionToPlayer.Normalize();
 
-            // Find an angle between player and enemy.
-            // Default Mathf.Atan2 return a radian coordinate angle.
-            // We need to multiply with Mathf.Rad2Deg to get the degree coordinate so it usable.
-            float _angle = Mathf.Atan2(directionToPlayer.y, 0 - directionToPlayer.x) * Mathf.Rad2Deg;
-
-            // Use Quaternion.AngleAxis to rotate axis of transform.
+            float _angle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x)*Mathf.Rad2Deg;
+            _angle = (_angle + 90);
             transform.rotation = Quaternion.AngleAxis(_angle, Vector3.forward);
 
-            
-            
         }
         else
         {
