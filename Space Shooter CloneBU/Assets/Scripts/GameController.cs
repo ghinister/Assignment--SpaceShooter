@@ -19,12 +19,15 @@ public class GameController : MonoBehaviour
 	Vector2 spawnMin;
 	Vector2 spawnMax;
 	
-	private float asteroidSpawnDelay = 3;
+	//private float asteroidSpawnDelay = 3;
 	private float gemSpawnDelay = 10;
 	private float coinSpawnDelay = 8;
 
 	void Start()
 	{
+		QualitySettings.vSyncCount = 0;
+		Application.targetFrameRate = 60;
+
 		if (mainCamera == null)
 		{
 			mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
@@ -32,7 +35,7 @@ public class GameController : MonoBehaviour
 
 		gameOver = false;
 		SetSpawnPosition();
-		StartCoroutine(Spawn(asteroid,asteroidSpawnDelay));
+		//StartCoroutine(Spawn(asteroid,asteroidSpawnDelay));
 		StartCoroutine(Spawn(gem, gemSpawnDelay));
 		StartCoroutine(Spawn(coin, coinSpawnDelay));
 		UpdateScoreText();
